@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import Core.Calculator;
 
 /**
  * @author Kalinaeva M.
@@ -25,25 +26,13 @@ public class Base {
             System.out.println("Введите операцию (+,-,*,/): ");
             String oper = scanner.next();
 
-            if (oper.equals("+")) {
-                double c = a + b;
-                System.out.print("Сумма: ");
-                System.out.printf("%10.4f", c);
-            } else if (oper.equals("-")) {
-                double c = a - b;
-                System.out.print("Разность: ");
-                System.out.printf("%10.4f", c);
-            } else if (oper.equals("*")) {
-                double c = a * b;
-                System.out.print("Умножение: ");
-                System.out.printf("%10.4f", c);
-            } else if (oper.equals("/")) {
-                double c = a / b;
-                System.out.print("Деление: ");
-                System.out.printf("%10.4f", c);
-            } else {
-                System.out.print("Недопустимая операция");
-            }
+            Calculator calc = new Calculator();
+
+            System.out.println("Ответ");
+
+            System.out.println(calc.calculate(a, b, oper));
+
+
         }
 
         else if (w == 2){
