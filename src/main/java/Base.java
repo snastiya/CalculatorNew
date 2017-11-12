@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import Core.Calculator;
@@ -16,21 +17,29 @@ public class Base {
         System.out.println("Введите номер задания(1-Калькулятор; 2-Поиск максимального элемента)");
         int w = scanner.nextInt();
         if (w == 1) {
+            try {
+                System.out.println("Введите первое число: ");
+                double a = scanner.nextDouble();
 
-            System.out.println("Введите первое число: ");
-            double a = scanner.nextDouble();
+                System.out.println("Введите второе число: ");
+                double b = scanner.nextDouble();
 
-            System.out.println("Введите второе число: ");
-            double b = scanner.nextDouble();
+                System.out.println("Введите операцию (+,-,*,/): ");
+                String oper = scanner.next();
 
-            System.out.println("Введите операцию (+,-,*,/): ");
-            String oper = scanner.next();
+                Calculator calc = new Calculator();
 
-            Calculator calc = new Calculator();
+                System.out.println("Ответ");
 
-            System.out.println("Ответ");
-
-            System.out.println(calc.calculate(a, b, oper));
+                System.out.println(calc.calculate(a, b, oper));
+            }
+            catch (InputMismatchException e) {
+                System.out.println("Вводите десятичные числа через запятую");
+                System.out.println(e.fillInStackTrace());
+            }
+            catch (ArithmeticException e) {
+                System.out.println("Нельзя делить на ноль");
+            }
 
 
         }

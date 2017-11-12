@@ -14,10 +14,16 @@ public class Calculator {
     }
 
     private double division(int a, int b) {
+        if(b==0){
+            throw new ArithmeticException();
+        }
         return (double) a / (double) b;
     }
 
     private double division(double a, double b) {
+        if (b==0){
+            throw new ArithmeticException();
+        }
         return a / b;
     }
 
