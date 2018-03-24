@@ -1,6 +1,6 @@
 package Core;
 
-public class Calculator {
+public class CalculatorNew {
     private double sum(int a, int b) {
         return a + b;
     }
